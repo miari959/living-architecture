@@ -57,7 +57,7 @@ export function App() {
         </div>
         <a
           className="masthead-link"
-          href="https://github.com"
+          href="https://github.com/miari959/living-architecture"
           target="_blank"
           rel="noreferrer"
         >

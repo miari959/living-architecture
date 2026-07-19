@@ -21,6 +21,20 @@ architecture emerge from the noise in real time.
 
 Bachelor-thesis project, packaged as a live portfolio piece.
 
+![Living Architecture — tracing a layered sorting pipeline](docs/hero.png)
+
+*Tracing a layered demo app: 96 runtime events distilled to the 34 that actually
+describe the architecture (64.6% noise removed). Toggle any filter stage on the
+left and the diagram re-derives live.*
+
+### The same pipeline on a real-world codebase
+
+Pointed at **Home Assistant's** core event/state/service bus, it captures 915 calls
+and reduces them to the 85 that reveal the actual architecture — `EventBus`,
+`StateMachine`, `ServiceRegistry` and friends — a **90.7% reduction**:
+
+![Living Architecture — tracing Home Assistant core](docs/home-assistant.png)
+
 ## How it works
 
 ```
