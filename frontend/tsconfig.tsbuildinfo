@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/api/client.ts","./src/components/apppicker.tsx","./src/components/diagramview.tsx","./src/components/errorbanner.tsx","./src/components/filtertoggles.tsx","./src/components/statspanel.tsx"],"version":"5.9.3"}

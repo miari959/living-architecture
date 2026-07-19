@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv314_backup/
+*.egg-info/
+
+# Node / frontend build
+frontend/node_modules/
+frontend/dist/
+backend/static/
+
+# Generated trace output
+output/*.json
+output/*.png
+output/*.puml
+
+# OS / IDE
+.DS_Store
+**/.DS_Store
+.idea/
+
+# Local dbs created by target apps at runtime
+applications/external_fastapi/*.db
+applications/external_django/**/db.sqlite3
+
+# --- Heavy vendored trees NOT needed for deployment (keep repo pushable) ---
+# The Zulip runner uses the pip `zulip` client, not this 721MB server tree.
+applications/external_zulip/
+# The vendored RealWorld FastAPI app is replaced by applications/fastapi_demo.
+applications/external_fastapi/
+# Home Assistant: keep only the homeassistant/ package; drop .git/tests/etc.
+applications/external_homeassistant/.git/
+applications/external_homeassistant/tests/
+applications/external_homeassistant/script/
+applications/external_homeassistant/machine/
+applications/external_homeassistant/rootfs/
+applications/external_homeassistant/pylint/
+applications/external_homeassistant/requirements_all.txt
+applications/external_homeassistant/requirements_test*.txt
+# Nested vendored git repos (would otherwise confuse the outer repo).
+# These were renamed to .git_disabled so git commits their SOURCE as normal files
+# instead of recording them as empty submodule links. Rename back to restore.
+applications/external_flask/.git/
+applications/external_django/.git/
+**/.git_disabled/

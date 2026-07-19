@@ -1,0 +1,16 @@
+# Render Blueprint — deploy the Living Architecture web app as a Docker service.
+# In the Render dashboard: New > Blueprint > connect this repo. Render reads
+# this file and provisions the service automatically.
+services:
+  - type: web
+    name: living-architecture
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    # --workers 1 is enforced inside the Dockerfile CMD (the trace lock is
+    # per-process); do NOT scale this service to multiple instances.
+    numInstances: 1
+    envVars:
+      - key: PORT
+        value: "8000"

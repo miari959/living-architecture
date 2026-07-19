@@ -1,0 +1,43 @@
+# --- virtualenvs, caches, IDE, OS cruft ---
+.venv
+.venv314_backup
+**/__pycache__/
+*.pyc
+.idea
+.DS_Store
+**/.DS_Store
+.git
+
+# --- local frontend build + node deps (rebuilt in the image) ---
+frontend/node_modules
+frontend/dist
+backend/static
+
+# --- generated trace output (not needed at runtime) ---
+output/
+
+# --- the vendored Zulip SERVER tree is NEVER used at runtime ---
+# (the zulip runner only imports the small `zulip` PyPI client, all HTTP mocked)
+applications/external_zulip/
+
+# --- Home Assistant: keep only the homeassistant/ package (~82MB); drop the rest ---
+applications/external_homeassistant/.git
+applications/external_homeassistant/tests/
+applications/external_homeassistant/script/
+applications/external_homeassistant/machine/
+applications/external_homeassistant/rootfs/
+applications/external_homeassistant/pylint/
+applications/external_homeassistant/requirements_all.txt
+applications/external_homeassistant/requirements_test*.txt
+
+# --- the vendored RealWorld FastAPI app is replaced by applications/fastapi_demo ---
+# (it needs FastAPI ~0.79 + Pydantic v1, incompatible with the backend's modern FastAPI)
+applications/external_fastapi/
+
+# --- misc heavy vendored bits not needed at runtime ---
+applications/**/.git
+# vendored repos' git dirs were renamed to .git_disabled so the outer repo commits
+# their source instead of empty submodule links; keep them out of the build context
+# (they are ~1.4GB combined and never needed at runtime)
+**/.git_disabled
+applications/**/node_modules
