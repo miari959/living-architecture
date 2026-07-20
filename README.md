@@ -1,14 +1,3 @@
----
-title: Living Architecture
-emoji: 🏛️
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 8000
-pinned: false
-license: mit
----
-
 # Living Architecture
 
 Most architecture diagrams describe what a system was *supposed* to look like.
