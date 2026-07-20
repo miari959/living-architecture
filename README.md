@@ -11,10 +11,17 @@ actually removes.
 
 Built for my bachelor thesis.
 
-![Tracing a layered sorting pipeline](docs/hero.png)
+![Switching each filter stage on in turn](docs/filter-pipeline.gif)
 
-A small layered demo: 96 recorded calls, 34 kept. The rest is logging, validation
-and recursion that tells you nothing about how the system is put together.
+The four stages switched on one at a time, against a small layered demo app.
+
+With every filter off, the trace has nine participants and 95 calls. `Logger`,
+`Validator`, `Random` and `_RandomNameSequence` are in there purely because the
+code happens to call them a lot. Stage 1 removes all four in one step: none of
+them calls anything back, which is what the fan-in/fan-out check looks for.
+Stage 2 strips the merge sort's recursion, Stage 3 drops calls that never leave
+their own class, and what remains is the four components the program is actually
+built from.
 
 ### On a real codebase
 
